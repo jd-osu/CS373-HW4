@@ -112,8 +112,8 @@ def main(argv):
 	
 	num_val = float(float(score) / float(weight))
 	
-	print "final score: %4u / %4u" % (score, weight)
-	print "num val: %11u" % (num_val)
+	print "final score: %4f / %4u" % (score, weight)
+	print "num val: %11f" % (num_val)
 	
 	# evaluation
 	eval_pt = .5
