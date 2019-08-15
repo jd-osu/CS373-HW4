@@ -26,7 +26,7 @@ def main(argv):
 
 	results = open('results','w')
 
-	print urldata
+	print urldata[0]
 
 	#for record in urldata:
  
