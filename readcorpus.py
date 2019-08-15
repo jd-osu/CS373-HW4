@@ -93,7 +93,7 @@ def main(argv):
 	if (val == None):
 		mult = 0
 	else:
-		mult = float((1000000 - val) / 1000000)
+		mult = float(float(1000000 - val) / float(1000000))
 
 	scores[x] = mult * weights[x]
 
@@ -110,7 +110,7 @@ def main(argv):
 		score += scores[sub]
 		weight += weights[sub]
 	
-	num_val = score/weight
+	num_val = float(score/weight)
 	
 	print "final score: %4u / %4u" % (score, weight)
 	print "num val: %11u" % (num_val)
