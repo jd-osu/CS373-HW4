@@ -90,7 +90,7 @@ def main(argv):
 	scores[x] = 0
 	print x + ": " + val
 
-	if (val == null):
+	if (val == None):
 		mult = 0
 	else:
 		mult = (1000000 - val) / 1000000
