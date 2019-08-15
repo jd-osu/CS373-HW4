@@ -69,6 +69,20 @@ def main(argv):
 
 	scores[x] = mult * weights[x]
 
+	# AGE
+	x = "ips"
+	val = len(record[x])
+	weights[x] = 10
+	scores[x] = 0
+	print x + ": " + val
+
+	if (val == 0):
+		mult = 0
+	else:
+		mult = 1
+
+	scores[x] = mult * weights[x]
+
 	#print all subscores
 	for sub in scores:
 		print "scores[" + sub +"]: %4u / %4u" % (scores[sub], weights[sub])
