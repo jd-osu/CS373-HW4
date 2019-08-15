@@ -114,6 +114,20 @@ def main(argv):
 
 	scores[x] = mult * weights[x]
 	
+	# QUERY
+	x = "query"
+	val = (int(str(record[x]).count("="))) if record[x] else None
+	weights[x] = 10
+	scores[x] = 0
+	print x + ": " + str(val)
+
+	if ((val == None) or (val <= 3)):
+		mult = .5
+	else:
+		mult = .25
+
+	scores[x] = mult * weights[x]
+	
 	#print all subscores
 	for sub in scores:
 		print "scores[" + sub +"]: %4u / %4u" % (scores[sub], weights[sub])
