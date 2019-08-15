@@ -5,7 +5,7 @@ import json, sys, getopt, os
 def usage():
 	print("Usage: %s --file=[filename]" % sys.argv[0])
 	sys.exit()
-
+	
 def main(argv):
 
 	file=''
@@ -32,17 +32,43 @@ def main(argv):
 	
 	scores = dict()
 	weights = dict()
-
 	
 	# TLD
-	tld = record["tld"]
-	weights["tld"] = 1
-	scores["tld"] = 0
-	print "tld: " + tld
+	x = "tld"
+	val = record[x]
+	weights[x] = 1
+	scores[x] = 0
+	print x + ": " + val
 
-	if (tld == "com") or (tld == "org") or (tld == "net") or (tld == "edu") or (tld == "gov"):
-		scores["tld"] = 1 * weights["tld"]
-		
+	if (val == "com") or (val == "org") or (val == "net") or (val == "edu") or (val == "gov"):
+		scores[x] = 1 * weights[x]
+	
+	# AGE
+	x = "domain_age_days"
+	val = record[x]
+	weights[x] = 10
+	scores[x] = 0
+	print x + ": " + val
+
+	if (val < 10):
+		mult = 0
+	elif (val < 20):
+		mult = .1
+	elif (val < 30):
+		mult = .2
+	elif (val < 90):
+		mult = .3
+	elif (val < 180):
+		mult = .4
+	elif (val < 360):
+		mult = .5
+	elif (val < 500):
+		mult = .75
+	else:
+		mult = 1
+
+	scores[x] = mult * weights[x]
+
 	#print all subscores
 	for sub in scores:
 		print "scores[" + sub +"]: %4u / %4u" % (scores[sub], weights[sub])
