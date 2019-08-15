@@ -82,9 +82,20 @@ def main(argv):
 		score += scores[sub]
 		weight += weights[sub]
 	
+	num_val = score/weight
+	
 	print "final score: %4u / %4u" % (score, weight)
+	print "num val: %11u" % (num_val)
 	
-	
+	# evaluation
+	eval_pt = .5
+	if (num_val < eval_pt):
+		mal = 1
+	else:
+		mal = 0
+		
+	print "malicious: " + str(mal)
+	print "actual: " + record["malicious_url"]
 
 	#for record in urldata:
  
