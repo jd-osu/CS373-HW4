@@ -45,10 +45,10 @@ def main(argv):
 	
 	# AGE
 	x = "domain_age_days"
-	val = record[x]
+	val = int(record[x])
 	weights[x] = 1
 	scores[x] = 0
-	print x + ": " + val
+	print x + ": " + str(val)
 
 	if (val < 10):
 		mult = 0
@@ -85,15 +85,15 @@ def main(argv):
 	
 	# ALEXA
 	x = "alexa_rank"
-	val = record[x]
+	val = int(record[x])
 	weights[x] = 1
 	scores[x] = 0
-	print x + ": " + val
+	print x + ": " + str(val)
 
 	if (val == None):
 		mult = 0
 	else:
-		mult = (1000000 - val) / 1000000
+		mult = float((1000000 - val) / 1000000)
 
 	scores[x] = mult * weights[x]
 
