@@ -34,15 +34,16 @@ def main(argv):
 	
 	# TLD
 	tld = record["tld"]
-	scores["tld"] = 5
+	weights["tld"] = 1
+	scores["tld"] = 0
 	print "tld: " + tld
 
 	if (tld == "com") or (tld == "org") or (tld == "net") or (tld == "edu") or (tld == "gov"):
-		scores["tld"] += 1
+		scores["tld"] = 1
 		
 	#print all subscores
 	for subscore in scores:
-		print "scores[" + subscore +"]: " + str(scores[subscore])
+		print "scores[" + subscore +"]: " + str(scores[subscore]) + " / " + str(weights[subscore])
 	
 	
 	
