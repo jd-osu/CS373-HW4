@@ -3,37 +3,37 @@
 import json, sys, getopt, os
 
 def usage():
-  print("Usage: %s --file=[filename]" % sys.argv[0])
-  sys.exit()
+	print("Usage: %s --file=[filename]" % sys.argv[0])
+	sys.exit()
 
 def main(argv):
 
-  file=''
+	file=''
  
-  myopts, args = getopt.getopt(sys.argv[1:], "", ["file="])
+	myopts, args = getopt.getopt(sys.argv[1:], "", ["file="])
  
-  for o, a in myopts:
-    if o in ('-f, --file'):
-      file=a
-    else:
-      usage()
+	for o, a in myopts:
+		if o in ('-f, --file'):
+			file=a
+		else:
+			usage()
 
-  if len(file) == 0:
-    usage()
+	if len(file) == 0:
+		usage()
  
-  corpus = open(file)
-  urldata = json.load(corpus, encoding="latin1")
+	corpus = open(file)
+	urldata = json.load(corpus, encoding="latin1")
 
-  results = open('results','w')
+	results = open('results','w')
 
-  for record in urldata:
+	for record in urldata:
  
-    # Do something with the URL record data...
-    print (record["url"])
-    results.write(record["url"] + "\n")
+		# Do something with the URL record data...
+		print (record["url"])
+		results.write(record["url"] + "\n")
 
-  corpus.close()
+	corpus.close()
 
 if __name__ == "__main__":
-  main(sys.argv[1:])
+	main(sys.argv[1:])
 
