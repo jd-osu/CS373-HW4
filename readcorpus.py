@@ -27,6 +27,9 @@ def main(argv):
 	results = open('results','w')
 
 	print urldata[0]
+	
+	# TLD
+	print "tld: " + urldata[0]["tld"]
 
 	#for record in urldata:
  
