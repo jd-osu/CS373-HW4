@@ -30,7 +30,7 @@ def main(argv):
  
     # Do something with the URL record data...
     print (record["url"])
-		results.write(record["url"] + "\n")
+    results.write(record["url"] + "\n")
 
   corpus.close()
 
