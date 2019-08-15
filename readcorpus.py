@@ -27,7 +27,7 @@ def main(argv):
   for record in urldata:
  
     # Do something with the URL record data...
-    print record["domain_age_days"]
+    print (record["domain_age_days"])
 
   corpus.close()
 
