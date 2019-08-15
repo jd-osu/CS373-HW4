@@ -79,7 +79,7 @@ def main(argv):
 	if (val == 0):
 		mult = 0
 	else:
-		mult = 1
+		mult = .5
 
 	scores[x] = mult * weights[x]
 	
