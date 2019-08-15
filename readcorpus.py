@@ -46,7 +46,7 @@ def main(argv):
 	# AGE
 	x = "domain_age_days"
 	val = record[x]
-	weights[x] = 10
+	weights[x] = 1
 	scores[x] = 0
 	print x + ": " + val
 
@@ -72,7 +72,7 @@ def main(argv):
 	# IPS
 	x = "ips"
 	val = len(record[x])
-	weights[x] = 10
+	weights[x] = 1
 	scores[x] = 0
 	print x + ": " + str(val)
 
@@ -80,6 +80,20 @@ def main(argv):
 		mult = 0
 	else:
 		mult = 1
+
+	scores[x] = mult * weights[x]
+	
+	# ALEXA
+	x = "alexa_rank"
+	val = record[x]
+	weights[x] = 1
+	scores[x] = 0
+	print x + ": " + val
+
+	if (val == null):
+		mult = 0
+	else:
+		mult = (1000000 - val) / 1000000
 
 	scores[x] = mult * weights[x]
 
