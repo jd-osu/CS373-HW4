@@ -24,10 +24,13 @@ def main(argv):
   corpus = open(file)
   urldata = json.load(corpus, encoding="latin1")
 
+  results = open('results','w')
+
   for record in urldata:
  
     # Do something with the URL record data...
-    print (record["domain_age_days"])
+    print (record["url"])
+		results.write(record["url"] + "\n")
 
   corpus.close()
 
