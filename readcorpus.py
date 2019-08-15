@@ -31,6 +31,8 @@ def main(argv):
 	record = urldata[0]
 	
 	scores = dict()
+	weights = dict()
+
 	
 	# TLD
 	tld = record["tld"]
