@@ -69,12 +69,12 @@ def main(argv):
 
 	scores[x] = mult * weights[x]
 
-	# AGE
+	# IPS
 	x = "ips"
 	val = len(record[x])
 	weights[x] = 10
 	scores[x] = 0
-	print x + ": " + val
+	print x + ": " + str(val)
 
 	if (val == 0):
 		mult = 0
