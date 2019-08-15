@@ -41,21 +41,24 @@ def main(argv):
 	print "tld: " + tld
 
 	if (tld == "com") or (tld == "org") or (tld == "net") or (tld == "edu") or (tld == "gov"):
-		scores["tld"] = 1
+		scores["tld"] = 1 * weights["tld"]
 		
 	#print all subscores
-	for subscore in scores:
-		print "scores[" + subscore +"]: " + str(scores[subscore]) + " / " + str(weights[subscore])
-	
-	
+	for sub in scores:
+		print "scores[" + sub +"]: " + str(scores[sub]) + " / " + str(weights[sub])
 	
 	# combine all scores
-	#total = 0
-	#n = len(scores)
-	#for subscore in scores:
-	#	total += subscore
+	score = 0
+	weight = 0
 	
-	#final_score = 
+	n = len(scores)
+	for sub in scores:
+		score += scores[sub]
+		weight += weights[sub]
+	
+	print "final score: " + str(score) + " / " + str(weight)
+	
+	
 
 	#for record in urldata:
  
