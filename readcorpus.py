@@ -28,8 +28,11 @@ def main(argv):
 
 	print urldata[0]
 	
+	record = urldata[0]
+	
 	# TLD
-	print "tld: " + urldata[0]["tld"]
+	tld = record["tld"]
+	print "tld: " + tld
 
 	#for record in urldata:
  
