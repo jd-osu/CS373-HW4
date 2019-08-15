@@ -95,7 +95,7 @@ def main(argv):
 		mal = 0
 		
 	print "malicious: " + str(mal)
-	print "actual: " + record["malicious_url"]
+	print "actual: " + str(record["malicious_url"])
 
 	#for record in urldata:
  
