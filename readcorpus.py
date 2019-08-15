@@ -30,6 +30,8 @@ def main(argv):
 	
 	record = urldata[0]
 	
+	scores = dict()
+	
 	# TLD
 	tld = record["tld"]
 	scores["tld"] = 5
