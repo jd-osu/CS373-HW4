@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import json, sys, getopt, os
+import random
 
 def usage():
 	print("Usage: %s --file=[filename]" % sys.argv[0])
@@ -26,9 +27,11 @@ def main(argv):
 
 	results = open('results','w')
 
-	print urldata[0]
+	rec = random.randint(0, (len(urldata)-1))
+
+	print urldata[rec]
 	
-	record = urldata[0]
+	record = urldata[rec]
 	
 	scores = dict()
 	weights = dict()
