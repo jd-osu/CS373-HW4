@@ -38,7 +38,7 @@ def main(argv):
 	print "tld: " + tld
 
 	if (tld == "com") or (tld == "org") or (tld == "net") or (tld == "edu") or (tld == "gov"):
-		tld_score += 1
+		scores["tld"] += 1
 		
 	#print all subscores
 	for subscore in scores:
