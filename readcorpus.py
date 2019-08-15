@@ -110,7 +110,7 @@ def main(argv):
 		score += scores[sub]
 		weight += weights[sub]
 	
-	num_val = float(score/weight)
+	num_val = float(float(score) / float(weight))
 	
 	print "final score: %4u / %4u" % (score, weight)
 	print "num val: %11u" % (num_val)
