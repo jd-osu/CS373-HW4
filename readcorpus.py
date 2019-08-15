@@ -85,7 +85,7 @@ def main(argv):
 	
 	# ALEXA
 	x = "alexa_rank"
-	val = int(record[x])
+	val = int(record[x]) if record[x] else None
 	weights[x] = 10
 	scores[x] = 0
 	print x + ": " + str(val)
@@ -97,6 +97,20 @@ def main(argv):
 
 	scores[x] = mult * weights[x]
 
+	# EXTENSION
+	x = "file_extension"
+	val = str(record[x]) if record[x] else None
+	weights[x] = 10
+	scores[x] = 0
+	print x + ": " + str(val)
+
+	if ((val == None) or (val != "exe")):
+		mult = .5
+	else:
+		mult = 0
+
+	scores[x] = mult * weights[x]
+	
 	#print all subscores
 	for sub in scores:
 		print "scores[" + sub +"]: %4u / %4u" % (scores[sub], weights[sub])
