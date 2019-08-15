@@ -45,7 +45,7 @@ def main(argv):
 		
 	#print all subscores
 	for sub in scores:
-		print "scores[" + sub +"]: " + str(scores[sub]) + " / " + str(weights[sub])
+		print "scores[" + sub +"]: %4u / %4u" % (scores[sub], weights[sub])
 	
 	# combine all scores
 	score = 0
@@ -56,7 +56,7 @@ def main(argv):
 		score += scores[sub]
 		weight += weights[sub]
 	
-	print "final score: " + str(score) + " / " + str(weight)
+	print "final score: %4u / %4u" % (score, weight)
 	
 	
 
