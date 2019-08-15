@@ -42,7 +42,7 @@ def main(argv):
 		
 	#print all subscores
 	for subscore in scores:
-		print "subscore: " + subscore
+		print "scores[" + subscore +"]: " + str(scores[subscore])
 	
 	
 	
