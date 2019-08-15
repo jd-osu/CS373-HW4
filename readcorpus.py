@@ -36,7 +36,7 @@ def main(argv):
 	# TLD
 	x = "tld"
 	val = record[x]
-	weights[x] = 1
+	weights[x] = 10
 	scores[x] = 0
 	print x + ": " + val
 
@@ -46,7 +46,7 @@ def main(argv):
 	# AGE
 	x = "domain_age_days"
 	val = int(record[x])
-	weights[x] = 1
+	weights[x] = 10
 	scores[x] = 0
 	print x + ": " + str(val)
 
@@ -72,7 +72,7 @@ def main(argv):
 	# IPS
 	x = "ips"
 	val = len(record[x])
-	weights[x] = 1
+	weights[x] = 10
 	scores[x] = 0
 	print x + ": " + str(val)
 
@@ -86,7 +86,7 @@ def main(argv):
 	# ALEXA
 	x = "alexa_rank"
 	val = int(record[x])
-	weights[x] = 1
+	weights[x] = 10
 	scores[x] = 0
 	print x + ": " + str(val)
 
