@@ -32,7 +32,25 @@ def main(argv):
 	
 	# TLD
 	tld = record["tld"]
+	scores["tld"] = 5
 	print "tld: " + tld
+
+	if (tld == "com") or (tld == "org") or (tld == "net") or (tld == "edu") or (tld == "gov"):
+		tld_score += 1
+		
+	#print all subscores
+	for subscore in scores:
+		print "subscore: " + subscore
+	
+	
+	
+	# combine all scores
+	#total = 0
+	#n = len(scores)
+	#for subscore in scores:
+	#	total += subscore
+	
+	#final_score = 
 
 	#for record in urldata:
  
