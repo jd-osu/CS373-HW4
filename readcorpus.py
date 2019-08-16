@@ -63,7 +63,7 @@ def main(argv):
 		# AGE
 		x = "domain_age_days"
 		val = int(record[x])
-		weights[x] = 10
+		weights[x] = 20
 		scores[x] = 0
 		print x + ": " + str(val)
 
