@@ -244,6 +244,46 @@ def main(argv):
 
 	scores[x] = mult * weights[x]
 
+	# KEYWORD COMBINATIONS
+	x = "url"
+	val = record[x]
+	weights[x] = 5
+	scores[x] = 0
+	print x + ": " + str(val)
+
+	keywords = ("apple", "google", "paypal", "ebay", "yahoo", "coinbase", "amazon", "microsoft")
+	mult = .5
+	
+	for key in keywords:
+		if (val.count(key) >= 1):
+
+			#if keyword exists in URL but has no alexa rating
+			if not record["alexa_rank"]:
+				mult -= .1
+			
+			#if keyword exists in URL but domain is young
+			if (record["domain_age_days"] <= 1000):
+				mult -= .1
+			
+			#if keyword exists in path
+			if record["path"]:
+				if (record["path"].count(key) >= 1):
+					mult -= .1
+					
+			#if keyword exists in query
+			if record["query"]:
+				if (record["query"].count(key) >= 1):
+					mult -= .1
+					
+			#if "-"+keyword or keyword+"-" exists in URL:
+			if (val.count("-" + key) >= 1) or (val.count(key + "-" >= 1):
+				mult -= .1
+			
+	if mult < 0:
+		mult = 0
+
+	scores[x] = mult * weights[x]
+
 	#print all subscores
 	for sub in scores:
 		print "scores[" + sub +"]: %4u / %4u" % (scores[sub], weights[sub])
