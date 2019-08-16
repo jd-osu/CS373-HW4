@@ -145,7 +145,7 @@ def main(argv):
 		# NUMBER OF DOMAIN TOKENS
 		x = "num_domain_tokens"
 		val = record[x]
-		weights[x] = 5
+		weights[x] = 4
 		scores[x] = 0
 		print x + ": " + str(val)
 
@@ -195,7 +195,7 @@ def main(argv):
 		# NUMBER OF PATH TOKENS
 		x = "num_path_tokens"
 		val = record[x]
-		weights[x] = 5
+		weights[x] = 4
 		scores[x] = 0
 		print x + ": " + str(val)
 
@@ -257,7 +257,7 @@ def main(argv):
 		# KEYWORD COMBINATIONS
 		x = "url"
 		val = record[x]
-		weights[x] = 5
+		weights[x] = 10
 		scores[x] = 0
 		print x + ": " + str(val)
 
