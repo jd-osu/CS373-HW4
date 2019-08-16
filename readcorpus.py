@@ -78,7 +78,7 @@ def main(argv):
 
 	# IPS
 	x = "ips"
-	val = len(record[x])
+	val = len(record[x]) if record[x] else 0
 	weights[x] = 10
 	scores[x] = 0
 	print x + ": " + str(val)
