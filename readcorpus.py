@@ -44,7 +44,11 @@ def main(argv):
 	print x + ": " + val
 
 	if (val == "com") or (val == "org") or (val == "net") or (val == "edu") or (val == "gov"):
-		scores[x] = 1 * weights[x]
+		mult = 1
+	else:
+		mult = .5
+	
+	scores[x] = mult * weights[x]
 	
 	# AGE
 	x = "domain_age_days"
@@ -131,14 +135,14 @@ def main(argv):
 	# NUMBER OF DOMAIN TOKENS
 	x = "num_domain_tokens"
 	val = record[x]
-	weights[x] = 10
+	weights[x] = 5
 	scores[x] = 0
 	print x + ": " + str(val)
 
 	if (val <= 4):
 		mult = .5
 	else:
-		mult = 0
+		mult = .3
 
 	scores[x] = mult * weights[x]
 
