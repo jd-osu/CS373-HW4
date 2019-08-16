@@ -8,7 +8,7 @@ def usage():
 	sys.exit()
 	
 def main(argv):
-	TRAINING = 1
+	TRAINING = 0
 
 	file=''
  
