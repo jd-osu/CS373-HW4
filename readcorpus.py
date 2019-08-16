@@ -243,7 +243,7 @@ def main(argv):
 		# PORT
 		x = "port"
 		val = record[x]
-		weights[x] = 5
+		weights[x] = 4
 		scores[x] = 0
 		print x + ": " + str(val)
 
