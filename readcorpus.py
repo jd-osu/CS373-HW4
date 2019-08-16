@@ -48,7 +48,7 @@ def main(argv):
 	else:
 		mult = .5
 	
-	scores[x] = mult * weights[x]
+	scores[x] = round(mult * weights[x])
 	
 	# AGE
 	x = "domain_age_days"
@@ -74,8 +74,8 @@ def main(argv):
 	else:
 		mult = 1
 
-	scores[x] = mult * weights[x]
-
+	scores[x] = round(mult * weights[x])
+	
 	# IPS
 	x = "ips"
 	val = len(record[x]) if record[x] else 0
@@ -88,7 +88,7 @@ def main(argv):
 	else:
 		mult = .5
 
-	scores[x] = mult * weights[x]
+	scores[x] = round(mult * weights[x])
 	
 	# ALEXA
 	x = "alexa_rank"
@@ -102,7 +102,7 @@ def main(argv):
 	else:
 		mult = float(float(1000000 - val) / float(1000000))
 
-	scores[x] = mult * weights[x]
+	scores[x] = round(mult * weights[x])
 
 	# EXTENSION
 	x = "file_extension"
@@ -116,7 +116,7 @@ def main(argv):
 	else:
 		mult = 0
 
-	scores[x] = mult * weights[x]
+	scores[x] = round(mult * weights[x])
 	
 	# QUERY
 	x = "query"
@@ -130,7 +130,7 @@ def main(argv):
 	else:
 		mult = .25
 
-	scores[x] = mult * weights[x]
+	scores[x] = round(mult * weights[x])
 	
 	# NUMBER OF DOMAIN TOKENS
 	x = "num_domain_tokens"
@@ -144,7 +144,7 @@ def main(argv):
 	else:
 		mult = .3
 
-	scores[x] = mult * weights[x]
+	scores[x] = round(mult * weights[x])
 
 	# HOST CHARACTERISTICS
 	x = "host"
@@ -180,7 +180,7 @@ def main(argv):
 	if mult < 0:
 		mult = 0
 
-	scores[x] = mult * weights[x]
+	scores[x] = round(mult * weights[x])
 	
 	# NUMBER OF PATH TOKENS
 	x = "num_path_tokens"
@@ -194,7 +194,7 @@ def main(argv):
 	else:
 		mult = .2
 
-	scores[x] = mult * weights[x]	
+	scores[x] = round(mult * weights[x])	
 
 	# PATH CHARACTERISTICS
 	x = "path"
@@ -228,7 +228,7 @@ def main(argv):
 	if mult < 0:
 		mult = 0
 
-	scores[x] = mult * weights[x]
+	scores[x] = round(mult * weights[x])
 
 	# PORT
 	x = "port"
@@ -242,7 +242,7 @@ def main(argv):
 	else:
 		mult = .5
 
-	scores[x] = mult * weights[x]
+	scores[x] = round(mult * weights[x])
 
 	# KEYWORD COMBINATIONS
 	x = "url"
@@ -282,7 +282,7 @@ def main(argv):
 	if mult < 0:
 		mult = 0
 
-	scores[x] = mult * weights[x]
+	scores[x] = round(mult * weights[x])
 
 	#print all subscores
 	for sub in scores:
