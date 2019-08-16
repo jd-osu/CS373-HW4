@@ -1,14 +1,14 @@
 #!/usr/bin/python
 
 import json, sys, getopt, os
-import random
+import os.path
 
 def usage():
 	print("Usage: %s --file=[filename]" % sys.argv[0])
 	sys.exit()
 	
 def main(argv):
-	TRAINING = 0
+	TRAINING = 1
 
 	file=''
  
@@ -26,7 +26,18 @@ def main(argv):
 	corpus = open(file)
 	urldata = json.load(corpus, encoding="latin1")
 
-	results = open('results','w')
+	file_ct = 0
+	results_str = "results"
+	done = False
+
+	if not TRAINING:
+		while not done:
+			if os.path.exists(results_str):
+				file_ct += 1
+				results_str += str(file_ct)
+			else:
+				results = open(results_str,'w')
+				done = True
 
 	count = 0
 	correct = 0
@@ -320,6 +331,8 @@ def main(argv):
 			if (mal):
 				malicious += 1
 			
+			results.write(record["url"] + ", " + str(mal))
+			
 		count += 1
 
 	print "-----------------------------------------------------------------------------"
@@ -334,7 +347,9 @@ def main(argv):
 
 
 	corpus.close()
-	results.close()
+
+	if not TRAINING:
+		results.close()
 
 if __name__ == "__main__":
 	main(sys.argv[1:])
