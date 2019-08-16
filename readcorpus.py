@@ -334,7 +334,7 @@ def main(argv):
 			if (mal):
 				malicious += 1
 			
-			results.write(record["url"] + ", " + str(mal))
+			results.write(record["url"] + ", " + str(mal) + "\n")
 			
 		count += 1
 
