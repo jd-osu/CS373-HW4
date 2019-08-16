@@ -276,7 +276,7 @@ def main(argv):
 					mult -= .1
 					
 			#if "-"+keyword or keyword+"-" exists in URL:
-			if (val.count("-" + key) >= 1) or (val.count(key + "-" >= 1):
+			if (val.count("-" + key) >= 1) or (val.count(key + "-") >= 1):
 				mult -= .1
 			
 	if mult < 0:
