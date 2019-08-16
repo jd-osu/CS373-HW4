@@ -8,6 +8,7 @@ def usage():
 	sys.exit()
 	
 def main(argv):
+	TRAINING = 1
 
 	file=''
  
@@ -27,24 +28,15 @@ def main(argv):
 
 	results = open('results','w')
 
-
-
 	count = 0
 	correct = 0
+	malicious = 0
 
 	for record in urldata:
- 
-		# Do something with the URL record data...
-		#print (record["url"])
-		#results.write(record["url"] + "\n")
-		#rec = random.randint(0, (len(urldata)-1))
-
-		#print urldata[rec]
-		
-		#record = urldata[rec]
-		
 		scores = dict()
 		weights = dict()
+		
+		print "-----------------------------------------------------------------------------"
 		
 		# TLD
 		x = "tld"
@@ -302,7 +294,6 @@ def main(argv):
 		score = 0
 		weight = 0
 		
-		n = len(scores)
 		for sub in scores:
 			score += scores[sub]
 			weight += weights[sub]
@@ -322,14 +313,23 @@ def main(argv):
 		print "malicious: " + str(mal)
 		print "actual: " + str(record["malicious_url"])
 
-		if (mal == record["malicious_url"]):
-			correct += 1
+		if (TRAINING):
+			if (mal == record["malicious_url"]):
+				correct += 1
+		else:
+			if (mal):
+				malicious += 1
 			
 		count += 1
 
-	print "count= " + str(count)
-	print "correct= " + str(correct)
-	print "Accuracy= " + str(round(float(float(correct) / float (count)) * 100, 2)) + "%"
+	print "Count= " + str(count)
+	if (TRAINING):
+		print "Correct= " + str(correct)
+		print "Accuracy= " + str(round(float(float(correct) / float (count)) * 100, 2)) + "%"
+	else:
+		print "Malicious= " + str(malicious)
+		print "%Malicious= " + str(round(float(float(malicious) / float (count)) * 100, 2)) + "%"
+
 
 	corpus.close()
 	results.close()
