@@ -20,6 +20,8 @@ def main(argv):
 		else:
 			usage()
 
+	print file
+
 	if len(file) == 0:
 		usage()
  
