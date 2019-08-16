@@ -184,10 +184,13 @@ def main(argv):
 		if len(val) > 30:
 			mult -= .1
 			
+		reg = len(record["registered_domain"]) if record["registered_domain"] else 0
+			
+			
 		# if host is significantly longer than registered domain
-		if (len(val) - len(record["registered_domain"]) > 10):
+		if (len(val) - reg > 10):
 			mult -= .1
-		if (len(val) - len(record["registered_domain"]) > 20):
+		if (len(val) - reg > 20):
 			mult -= .1
 			
 		if mult < 0:
