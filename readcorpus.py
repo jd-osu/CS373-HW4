@@ -247,7 +247,7 @@ def main(argv):
 		scores[x] = 0
 		print x + ": " + str(val)
 
-		if ((val != 80) or (val != 443)):
+		if ((val != 80) and (val != 443)):
 			mult = 0
 		else:
 			mult = .5
