@@ -1,4 +1,7 @@
 #!/usr/bin/python
+# Author: Jason DiMedio
+# CS373
+# August 16, 2019
 
 import json, sys, getopt, os
 import os.path
