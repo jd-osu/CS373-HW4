@@ -230,6 +230,19 @@ def main(argv):
 
 	scores[x] = mult * weights[x]
 
+	# PORT
+	x = "port"
+	val = record[x]
+	weights[x] = 5
+	scores[x] = 0
+	print x + ": " + str(val)
+
+	if ((val != 80) or (val != 443)):
+		mult = 0
+	else:
+		mult = .5
+
+	scores[x] = mult * weights[x]
 
 	#print all subscores
 	for sub in scores:
