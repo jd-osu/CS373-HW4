@@ -108,7 +108,7 @@ def main(argv):
 		print x + ": " + str(val)
 
 		if (val == None):
-			mult = .4
+			mult = .2
 		else:
 			mult = float(float(1000000 - val) / float(1000000))
 
