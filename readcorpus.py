@@ -322,6 +322,7 @@ def main(argv):
 			
 		count += 1
 
+	print "-----------------------------------------------------------------------------"
 	print "Count= " + str(count)
 	if (TRAINING):
 		print "Correct= " + str(correct)
