@@ -128,6 +128,56 @@ def main(argv):
 
 	scores[x] = mult * weights[x]
 	
+	# NUMBER OF DOMAIN TOKENS
+	x = "num_domain_tokens"
+	val = record[x]
+	weights[x] = 10
+	scores[x] = 0
+	print x + ": " + str(val)
+
+	if (val <= 4):
+		mult = .5
+	else:
+		mult = 0
+
+	scores[x] = mult * weights[x]
+
+	# HOST CHARACTERISTICS
+	x = "host"
+	val = record["host"]
+	weights[x] = 10
+	scores[x] = 0
+	print x + ": " + str(val)
+
+	mult = .5
+
+	# if host contains "-"
+	if val.count("-") >= 1:
+		mult -= .1
+
+	# if .com is in the middle of the host
+	if val.count(".com.") >= 1:
+		mult -= .1
+	
+	# if host is exceedingly long
+	if len(val) > 15:
+		mult -= .1
+	if len (val) > 23:
+		mult -= .1
+	if len(val) > 30:
+		mult -= .1
+		
+	# if host is significantly longer than registered domain
+	if (len(val) - len(record["registered_domain"]) > 10)
+		mult -= .1
+	if (len(val) - len(record["registered_domain"]) > 20)
+		mult -= .1
+		
+	if mult < 0:
+		mult = 0
+
+	scores[x] = mult * weights[x]
+	
 	#print all subscores
 	for sub in scores:
 		print "scores[" + sub +"]: %4u / %4u" % (scores[sub], weights[sub])
